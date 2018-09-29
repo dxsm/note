@@ -18,8 +18,15 @@ This is an H2
 *斜体字*      _斜体字_
 **粗体**  __粗体__
 ***粗斜体*** ___粗斜体___
+==高亮==
 
-上标：X<sub>2</sub>，下标：O<sup>2</sup>
+上标：X<sub>2</sub>   X~2~
+下标：O<sup>2</sup>   O^2^
+
+**脚注**
+Content  [^1]
+[^1]: 我是脚注
+
 
 **缩写(同HTML的abbr标签)**
 
@@ -76,7 +83,7 @@ GFM a-tail link @pandao  邮箱地址自动链接 test.test@gmail.com  www@vip.q
 
 #### JS代码　
 
-```javascript
+```javascript{.line-numbers}
 function test() {
 	console.log("Hello world!");
 }
