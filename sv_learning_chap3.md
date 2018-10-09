@@ -1,6 +1,12 @@
-# systemverilog接口
+# systemverilog接口实例
 
-DUT
+* 接口信号必须使用非阻塞赋值来驱动
+* modport将信号分组并指定方向
+* clocking时钟快用于控制同步信号的时序
+* `$exit`用于结束程序块，`$finish`用于结束仿真
+
+## DUT代码
+以简单的乘法器为例写testbench
 ```verilog{.line-numbers}
 //mul.v
 module mul(
@@ -26,7 +32,7 @@ always @(posedge clk,negedge rst_n)
 endmodule
 ```
 
-interface
+## interface代码
 ```verilog{.line-numbers}
 //mul_if.sv
 interface mul_if(input bit clk);
@@ -65,7 +71,7 @@ modport DUT(
 endinterface
 ```
 
-Driver
+## Driver代码
 ```verilog{.line-numbers}
 //driver.sv
 program driver(mul_if.DRV mulif);
@@ -90,7 +96,7 @@ end
 endprogram
 ```
 
-tb_top
+## tb_top代码
 ```verilog{.line-numbers}
 //tb_top.sv
 module tb_top();
@@ -111,5 +117,13 @@ mul u_mul(
   .out_vld  (mulif.DUT.out_vld)
 )
 
+initial begin
+  $fsdbDumpfile("wave.fsdb");
+  $fsdbDumpvars(0);
+end
+
 endmodule
 ```
+
+## 仿真波形
+![](assets/markdown-img-paste-20181009184548641.png)
