@@ -1,9 +1,13 @@
-# systemverilog接口实例
+# systemverilog接口以及搭建测试环境
 
 * 接口信号必须使用非阻塞赋值来驱动
 * modport将信号分组并指定方向
-* clocking时钟快用于控制同步信号的时序
+* clocking时钟块用于控制同步信号的时序
+
+testbench注意事项：
 * `$exit`用于结束程序块，`$finish`用于结束仿真
+* 时钟产生不应该放在program程序块中，会引起信号的竞争，而应该放在module中
+* 例化时如果端口名字和数据类型一致，例化时可以用.*(隐式端口连接)
 
 ## DUT代码
 以简单的乘法器为例写testbench
