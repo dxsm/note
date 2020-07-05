@@ -1,3 +1,12 @@
+---
+title: electron-vue学习之环境搭建
+date: 2020-07-05 23:40:39
+tag: [electron,electron-vue]
+category: electron
+---
+
+
+
 ## electron-vue环境配置
 
 工作环境centos8，切换到root用户安装npm、yarn、vue_cli
@@ -17,6 +26,8 @@ yarn config set sass_binary_site https://npm.taobao.org/mirrors/node-sass/
 ```
 
 使用`npm config list`和`yarn config list`查看切换源是否成功
+
+<!--more-->
 
 ## 初始化electron_vue项目
 

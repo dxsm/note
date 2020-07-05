@@ -1,7 +1,7 @@
 ---
 title: AHB协议学习笔记
 date: 2018-12-12 22:50:15
-tags: [AMBA, SOC]
+tags: [AMBA, SOC, AHB]
 category: SOC设计
 toc_number: false
 ---

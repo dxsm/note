@@ -1,7 +1,7 @@
 ---
-title: 芯片设计小实例——共享Buffer
+title: 芯片设计小实例之共享Buffer
 date: 2020-06-20 23:40:44
-tag: 设计技巧，资源优化
+tag: [设计技巧，资源优化]
 category: ASIC设计
 ---
 

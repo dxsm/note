@@ -1,6 +1,16 @@
-# AXI协议详解
+---
+title: AXI协议详解
+date: 2020-07-05 23:11:08
+tag: [AMBA, SOC, AXI]
+category: SOC设计
+---
+
+
+
+
 
 ## 相较于AXI3，AXI4新增内容：
+
 * support for burst lengths up to 256 beats
 * Quality of Service (QoS) signaling
 * support for multiple region interfaces
@@ -10,6 +20,8 @@
 * details of optional User signaling
 * removal of locked transactions
 * removal of write interleaving
+
+<!--more-->
 
 ![](assets/markdown-img-paste-20181205135114671.png)
 ![](assets/markdown-img-paste-2018120513513301.png)
