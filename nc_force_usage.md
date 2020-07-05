@@ -1,4 +1,9 @@
-# testbence如何force vhdl内部信号
+---
+title: testbench如何force vhdl内部信号
+date: 2018-10-02 22:50:15
+tags: [testbench, ASIC]
+category: ASIC验证
+---
 
 ## force verilog内部信号
 
@@ -21,9 +26,11 @@ initial begin //vhdl internal signal access
 end
 ```
 
+<!-- more -->
+
 ## cadence工具debug小技巧
 使用cadence工具编译出错，看不懂error解释时，可以使用`nchelp`获取更详细的解释或解决办法。例如编译时出现如下错误：
-![](assets/markdown-img-paste-20180922183151480.png)
+![irun SETNEL error](assets/markdown-img-paste-20180922183151480.png)
 
 可以在terminal敲入命令`nchelp ncsim SETNEL`得到详细帮助如下：
-![](assets/markdown-img-paste-20180922183435465.png)
+![irun SETNEL solution](assets/markdown-img-paste-20180922183435465.png)

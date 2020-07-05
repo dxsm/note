@@ -1,4 +1,10 @@
-# AHB协议学习笔记
+---
+title: AHB协议学习笔记
+date: 2018-12-12 22:50:15
+tags: [AMBA, SOC]
+category: SOC设计
+toc_number: false
+---
 
 ## 1. AHB组成部分
 * AHB主设备(master)
@@ -13,7 +19,9 @@
 * AHB译码器(decoder)
   - 通过地址译码来决定选择哪个slave
 
-![](assets/markdown-img-paste-20181128135549530.png)
+![AHB总线结构图](assets/markdown-img-paste-20181128135549530.png)
+
+<!-- more -->
 
 ## 2. AHB信号
 | Name              | Source           | To                           | Desciption                                                                                                                                              |
@@ -121,9 +129,10 @@ config: {hscale: 3}
 * INCR传输HADDR累加值与HSIZE有关，每次加2^HSIZE^
 * Burst传输不能跨越1K边界，即到达1K边界需要用NONSEQ发起一次新的传输
 
-**思考：为什么burst传输不能跨越1K边界？**
+:::hint info 
+**:question:思考：为什么burst传输不能跨越1K边界？**
 ARM的回答：The 1KB restriction you refer to is not a restriction on maximum slave size but a constraint within AHB that says that a burst must not cross a 1KB boundary. The limit is designed to prevent bursts crossing from one device to another and to give a reasonable trade-off between burst size and efficiency. In practise, this means that a master must ALWAYS break a burst that would otherwise cross the 1KB boundary and restart it with a non-sequential transfer.
-
+:::
 
 ```wavedrom
 {signal: [
@@ -158,11 +167,14 @@ config: {hscale: 3}
 ```
 
 ### 4.4 WRAP传输
-**思考：如何确定WRAP边界？**
+::: hint info 
+**:question:思考：如何确定WRAP边界？**
 wrap的边界与HSIZE和HBURST都有关系，对于WRAP4来说，HADDR[HSIZE+1:HSIZE]==2'b11就是边界；对于WRAP8来说，HADDR[HSIZE+2:HSIZE]==2'b111就是边界，同理适用于WRAP16。
 **假如**：HSIZE=3'b010时，HADDR起始地址为0x48
 **当HBURST为WRAP4时**，HADDR依次为0x48 -> 0x4C -> 0x40 -> 0x44(对应的HADDR[3:2]依次为2'b10 -> 2'b11 -> 2'b00 -> 2'b01)
 **当HBURST为WRAP8时**，HADDR依次为0x48 -> 0x4C -> 0x50 -> 0x54 -> 0x58 -> 0x5C -> 0x40 -> 0x44(对应的HADDR[4:2]依次为3'b010 -> 3'b011 -> 3'b100 -> 3'b101 -> 3'b110 -> 3'b111 -> 3'b000 -> 3'b001)
+:::
+
 
 ```wavedrom
 {signal: [

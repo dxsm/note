@@ -1,4 +1,9 @@
-# systemverilog接口以及搭建测试环境
+---
+title: systemverilog接口以及搭建测试环境
+date: 2018-09-29 22:50:15
+tags: [systemverilog, ASIC]
+category: ASIC验证
+---
 
 * 接口信号必须使用非阻塞赋值来驱动
 * modport将信号分组并指定方向
@@ -11,7 +16,7 @@ testbench注意事项：
 
 ## DUT代码
 以简单的乘法器为例写testbench
-```verilog{.line-numbers}
+```verilog
 //mul.v
 module mul(
   input             clk,
@@ -36,8 +41,10 @@ always @(posedge clk,negedge rst_n)
 endmodule
 ```
 
+<!-- more -->
+
 ## interface代码
-```verilog{.line-numbers}
+```verilog
 //mul_if.sv
 interface mul_if(input bit clk);
 
@@ -76,7 +83,7 @@ endinterface
 ```
 
 ## Driver代码
-```verilog{.line-numbers}
+```verilog
 //driver.sv
 program driver(mul_if.DRV mulif);
 
@@ -101,7 +108,7 @@ endprogram
 ```
 
 ## tb_top代码
-```verilog{.line-numbers}
+```verilog
 //tb_top.sv
 module tb_top();
 
@@ -130,4 +137,4 @@ endmodule
 ```
 
 ## 仿真波形
-![](assets/markdown-img-paste-20181009184548641.png)
+![systemverilog interface实例仿真图](assets/markdown-img-paste-20181009184548641.png)

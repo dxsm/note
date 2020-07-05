@@ -1,4 +1,9 @@
-# systemverilog任务、函数、program
+---
+title: systemverilog任务、函数、program
+date: 2018-09-28 22:50:15
+tags: [systemverilog, ASIC]
+category: ASIC验证
+---
 
 * 缺省情况下参数的类型是与其前一个参数相同的，而第一个参数的缺省类型是logic单bit输入
 * 参数的传递方式可以使用ref指定为引用，通常用于数组引用；当不希望子程序改变数组值时，可以使用const ref类型
@@ -6,7 +11,7 @@
 * 自动存储相对的是静态存储，当多个地方调用静态存储子程序时，不同的线程之间会窜用这些局部变量，而自动存储能够迫使仿真器使用堆栈存储局部变量
 * 函数使用return返回一个值，调用时可以使用void忽略返回值，例如`void'($fscanf(file,"%d",i));`
 
-```verilog{.line-numbers}
+```verilog
 module test_func();
 
 int arr[];
@@ -45,9 +50,11 @@ end
 
 endmodule
 ```
+<!-- more -->
 
 ## program
 **program与module相同点**
+
 * 和module相同，program也可以定义0个或多个输入、输出、双向端口。
 * 一个program块内部可以包含0个或多个initial块、generate块、specparam语句、连续赋值语句、并发断言、timeunit声明。
 * 在program块中数据类型、数据声明、函数和任务的定义均与module块类似。

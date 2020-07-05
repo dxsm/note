@@ -1,14 +1,20 @@
-# systemverilog基础
+---
+title: systemverilog基础
+date: 2018-09-27 22:50:15
+tags: [systemverilog, ASIC]
+category: ASIC验证
+toc_number: false
+---
 
 ## 1. 内建数据类型
 四状态：reg, wire, logic, integer, time(默认值为X)
 双状态：bit, int, byte, shortint, longint, real(默认值为0)
 有符号数：int, byte, shortint, longint, integer(可以使用unsigned申明为无符号数)
 
-:fa-heart: **`$isunknown`操作符:**
+:bookmark: **`$isunknown`操作符:**
 作用：使用`$isunknown`操作符，可以在表达式的任意位出现X或Z时返回1
 
-```verilog{.line-numbers}
+```verilog
 //test_isunknown.sv
 module test_isunknown();
 
@@ -26,12 +32,13 @@ end
 
 endmodule
 ```
+<!-- more -->
 
 ## 2. 数组
 ### 2.1 数组初始化、比较、 复制、循环
 循环使用for或foreach
 
-```verilog{.line-numbers}
+```verilog
 //test_array.sv
 module test_array();
 
@@ -72,7 +79,7 @@ end
 endmodule
 ```
 运行结果如下：
-![](assets/markdown-img-paste-20180930165253739.png)
+![systemverilog数组操作](assets/markdown-img-paste-20180930165253739.png)
 
 ### 2.2 动态数组
 * 分配空间`new[]`
@@ -81,7 +88,7 @@ endmodule
 * 当数组(动态或定宽)复制给一个动态数组时，会调用构造函数new[]分配空间并复制数据
 * `$size(arr)`返回数组宽度
 
-```verilog{.line-numbers}
+```verilog
 module dyn_array();
 
 // declare and initial
@@ -111,18 +118,18 @@ endmodule
 
 ### 2.3 队列
 * 声明q[\$]
-* \$表示队列索引的最大值或最小值，[\$:2]代表[0:2]，[1:\$]代表[1:\$size(q)-1]，**不是所有仿真器都支持\$表示最小值**
+* \$表示队列索引的最大值或最小值，[\$:2]代表[0:2]，[1: ​\$]代表[1: ​\$size(q)-1]，**不是所有仿真器都支持\$表示最小值**
 * `q.insert(idx,value)`, 在idx之前插入元素或者队列，**不是所有仿真器都支持插入队列**
 * `q.delete(idx)`, 删除第idx个元素
 * `q.push_front(value)`, 在队列前面插入元素，等价于q={value,q}
 * `q.push_back(value)`, 在队列末尾插入元素，等价于q={q,value}
-* `q.pop_front`, 从队列前面移出元素，等价于j=q[0]; q=q[1:\$]
-* `q.pop_back`, 从队列末尾移出元素，等价于j=q[\$]; q=q[0:\$-1]
+* `q.pop_front`, 从队列前面移出元素，等价于j=q[0]; q=q[1: \$]
+* `q.pop_back`, 从队列末尾移出元素，等价于j=q[\$]; q=q[0: \$-1]
 * `q.delete()`, 清空队列，等价于q={}
 * 可以把定宽或动态数组复制给队列
 * 队列遍历也可以使用for和foreach
 
-```verilog{.line-numbers}
+```verilog
 module queue();
 
 // declare and initial
@@ -172,7 +179,7 @@ endmodule
 * `arr.shuffle()`, 数组打乱顺序
 * 其中`reverse`和`shuffle`方法不能带with条件语句，它们的作用范围是整个数组
 
-```verilog{.line-numbers}
+```verilog
 module array();
 
 int arr[] = '{9,1,8,6,3,4,6,11,4};
@@ -218,7 +225,7 @@ endmodule
 * `s.len()`, 返回字符串长度
 * `$psprintf()`, 返回一个格式化的临时字符串，可以直接传递给其他子函数
 
-```verilog{.line-numbers}
+```verilog
 module test_string();
 
 string s;

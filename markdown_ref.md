@@ -1,8 +1,9 @@
-# Editor.md
-
-![](https://pandao.github.io/editor.md/images/logos/editormd-logo-180x180.png)
-
-![](https://img.shields.io/github/stars/pandao/editor.md.svg) ![](https://img.shields.io/github/forks/pandao/editor.md.svg) ![](https://img.shields.io/github/tag/pandao/editor.md.svg) ![](https://img.shields.io/github/release/pandao/editor.md.svg) ![](https://img.shields.io/github/issues/pandao/editor.md.svg) ![](https://img.shields.io/bower/v/editor.md.svg)
+---
+title: markdown参考案例
+tags: markdown
+category: markdown
+date: 2018-09-22 22:50:00
+---
 
 This is an H1
 =============
@@ -20,13 +21,29 @@ This is an H2
 ***粗斜体*** ___粗斜体___
 ==高亮==
 
+### markdown-it-kbd
+[[Ctrl+C]]
+
+### markdown-it-attrs
+* success background {.bg-success}
+* info background {.bg-info}
+* warning background {.bg-warning}
+* danger background {.bg-danger}
+* ==red=={.bg-red} ==red dark=={.bg-red-dark} ==green=={.bg-green} ==blue=={.bg-blue} ==orange=={.bg-orange} ==pink=={.bg-pink}
+* ::red::{.red} ::blue::{.blue} ::green::{.green} ::purple::{.purple} ::pink::{.pink}
+* ::波浪线红::{.wavy-red} ::波浪绿线::{.wavy-green} ::波浪线粉::{.wavy-pink}
+
+a=b=
+
 上标：X<sub>2</sub>   X~2~
 下标：O<sup>2</sup>   O^2^
 
 **脚注**
 Content  [^1]
+
 [^1]: 我是脚注
 
+<!-- more -->
 
 **缩写(同HTML的abbr标签)**
 
@@ -41,6 +58,8 @@ The <abbr title="Hyper Text Markup Language">HTML</abbr> specification is mainta
 引用的行内混合 Blockquotes
 
 > 引用：如果想要插入空白换行`即<br />标签`，在插入处先键入两个以上的空格然后回车即可，[普通链接](http://localhost/)。
+> * 苹果
+> * 香蕉
 
 ### 锚点与链接 Links
 
@@ -83,7 +102,7 @@ GFM a-tail link @pandao  邮箱地址自动链接 test.test@gmail.com  www@vip.q
 
 #### JS代码　
 
-```javascript{.line-numbers}
+```javascript
 function test() {
 	console.log("Hello world!");
 }
@@ -165,32 +184,57 @@ Image:
 ----
 
 ### 列表 Lists
+#### 无序列表（加号和嵌套）Unordered Lists (+/-/*)
 
-#### 无序列表（减号）Unordered Lists (-)
-
-- 列表一
-- 列表二
-- 列表三
-
-#### 无序列表（星号）Unordered Lists (*)
-
-* 列表一
-* 列表二
-* 列表三
-
-#### 无序列表（加号和嵌套）Unordered Lists (+)
-
-+ 列表一
-+ 列表二
++ 列表1 
+{.list-square}
++ 列表2
     + 列表二-1
     + 列表二-2
     + 列表二-3
-+ 列表三
+    {.list-circle}
++ 列表3
+    - 列表一
+    - 列表二
+    - 列表三
+    {.list-alpha}
++ 列表4
     * 列表一
     * 列表二
     * 列表三
+    {.list-roman}
++ 列表5
+    * 列表一
+    * 列表二
+    * 列表三
+    {.list-cn}
++ 列表6
+    * 列表一
+    * 列表二
+    * 列表三
+    {.list-cn1}
++ 列表7
+    * 列表一
+    * 列表二
+    * 列表三
+    {.list-cn2_0}
++ 列表8
+    * 列表一
+    * 列表二
+    * 列表三
+    {.list-cn2_1}
++ 列表9
+    * 列表一
+    * 列表二
+    * 列表三
+    {.list-cn2_2}
++ 列表10
+    * 列表一
+    * 列表二
+    * 列表三
+    {.list-cn2_3}
 
-#### 有序列表 Ordered Lists (-)
+#### 有序列表 Ordered Lists (1./2.)
 
 1. 第一行
 2. 第二行
@@ -212,40 +256,49 @@ Image:
 
 ### 绘制表格 Tables
 
-| 项目   |   价格 | 数量 |
-| ------ | ------:|:----:|
-| 计算机 | \$1600 |  5   |
-| 手机   |   \$12 |  12  |
-| 管线   |    \$1 | 234  |
-
-First Header  | Second Header
-------------- | -------------
-Content Cell  | Content Cell
-Content Cell  | Content Cell
-
-| First Header | Second Header |
-| ------------ | ------------- |
-| Content Cell | Content Cell  |
-| Content Cell | Content Cell  |
-
-| Function name | Description                |
-| ------------- | -------------------------- |
-| `help()`      | Display the help window.   |
-| `destroy()`   | **Destroy your computer!** |
-
 | Left-Aligned  | Center Aligned  | Right Aligned |
 |:------------- |:---------------:| -------------:|
-| col 3 is      | some wordy text |         $1600 |
-| col 2 is      |    centered     |           $12 |
-| zebra stripes |    are neat     |            $1 |
-
-| Item     |  Value |
-| -------- | ------:|
-| Computer | \$1600 |
-| Phone    |   \$12 |
-| Pipe     |    \$1 |
+| col 3 is      | some wordy text |        \$1600 |
+| col 2 is      |    centered     |          \$12 |
+| zebra stripes |    are neat     |           \$1 |
 
 ----
+
+#### markdown-it-container
+::: {.pannel-default}
+#### 任务列表
+- [x] 买一双运动鞋
+- [ ] 背诵一篇作文
+- [ ] 打一会篮球
+:::
+
+::: {.pannel-success}
+#### 任务列表
+- [x] 买一双运动鞋
+- [ ] 背诵一篇作文
+- [ ] 打一会篮球
+:::
+
+::: {.pannel-info}
+#### 任务列表
+- [x] 买一双运动鞋
+- [ ] 背诵一篇作文
+- [ ] 打一会篮球
+:::
+
+::: {.pannel-warning}
+#### 任务列表
+- [x] 买一双运动鞋
+- [ ] 背诵一篇作文
+- [ ] 打一会篮球
+:::
+
+::: {.pannel-danger}
+#### 任务列表
+- [x] 买一双运动鞋
+- [ ] 背诵一篇作文
+- [ ] 打一会篮球
+:::
 
 #### 特殊符号 HTML Entities Codes
 
@@ -262,15 +315,16 @@ X&sup2; Y&sup3; &frac34; &frac14;  &times;  &divide;   &raquo;
 
 > Blockquotes :star:
 
-#### GFM task lists & Emoji & fontAwesome icon emoji & editormd logo emoji :editormd-logo-5x:
+#### GFM task lists & Emoji & fontAwesome icon emoji
 
-- [x] :smiley: @mentions, :smiley: #refs, [links](), **formatting**, and <del>tags</del> supported :editormd-logo:;
-- [x] list syntax required (any unordered or ordered list supported) :editormd-logo-3x:;
-- [x] [ ] :smiley: this is a complete item :smiley:;
-- [ ] []this is an incomplete item [test link](#) :fa-star: @pandao;
-- [ ] [ ]this is an incomplete item :fa-star: :fa-gear:;
-    - [ ] :smiley: this is an incomplete item [test link](#) :fa-star: :fa-gear:;
-    - [ ] :smiley: this is  :fa-star: :fa-gear: an incomplete item [test link](#);
+- [x] :smiley: :joy:  @mentions, :star: #refs, [links](), **formatting**, and <del>tags</del> supported :cupid:;
+- [x] list syntax required (any unordered or ordered list supported) :alarm_clock:;
+- [x] :hearts: :yellow_heart: :gift_heart: this is a complete item :+1: :-1:;
+- [ ] this is an incomplete item [test link](#) :pill: :syringe: @pandao :scroll: :file_folder: :open_file_folder:;
+- [ ] :gear: this is an incomplete item :mag: :lock: :envelope: :pushpin: :paperclip: :pencil: :calendar: :date: ;
+    - [ ] :zap: this is an incomplete item [test link](#) :tada: :bell: :hourglass_flowing_sand:;
+    - [ ] :rabbit: :question: :exclamation: :bookmark: :books: :fire:  this is  :notes: :sunny: :mushroom: an incomplete item [test link](#);
+    - [ ] :tea: :apple: :house: :cn: :arrow_forward: :ballot_box_with_check: :link: :fa-gear: :fa-gear: :zap:
 
 #### 反斜杠 Escape
 
@@ -280,21 +334,29 @@ X&sup2; Y&sup3; &frac34; &frac14;  &times;  &divide;   &raquo;
 
 ### 科学公式 TeX(KaTeX)
 
-$$E=mc^2$$
+$$
+E=mc^2
+$$
 
-行内的公式$$E=mc^2$$行内的公式，行内的$$E=mc^2$$公式。
 
-$$x > y$$
 
-$$(\sqrt{3x-1}+(1+x)^2)$$
+行内的公式$E=mc^2$行内的公式，行内的$E=mc^2$公式。
 
-$$\sin(\alpha)^{\theta}=\sum_{i=0}^{n}(x^i + \cos(f))$$
+$$
+x > y
+$$
+
+$$
+(\sqrt{3x-1}+(1+x)^2)
+$$
+
+$$
+\sin(\alpha)^{\theta}=\sum_{i=0}^{n}(x^i + \cos(f))
+$$
 
 ### 分页符 Page break
 
 > Print Test: Ctrl + P
-
-[========]
 
 ### 绘制流程图 Flowchart
 
@@ -308,8 +370,6 @@ st->op->cond
 cond(yes)->e
 cond(no)->op
 ```
-
-[========]
 
 ## UML diagrams
 
@@ -349,7 +409,7 @@ China-->Andrew: How are you?
 Andrew->>China: I am good thanks!
 ```
 
-```sequence{theme="hand"}
+```sequence{theme=&amp;quot;hand&amp;quot;}
 Andrew->China: Says Hello
 Note right of China: China thinks\nabout it
 China-->Andrew: How are you?
@@ -358,11 +418,11 @@ Andrew->>China: I am good thanks!
 
 [========]
 
-### PlantUML(Java is required to be installed)
+### PlantUML
 
-```PlantUML {align=Center}
-A->B
-```
+@startuml
+Bob -> Alice : hello
+@enduml
 
 [========]
 
@@ -376,7 +436,6 @@ A->B
   {name: 'req', wave: '0.1..0|1.0'},
   {},
   {name: 'ack', wave: '1.....|01.'},
-  {name: 'aa', wave: '0101010101..'}
 ]}
 ```
 
@@ -405,9 +464,9 @@ A->B
 
 [========]
 
-### WaveDrom
+### ditaa
 
-```ditaa {cmd=true args=["-E"]}
+```ditaa{cmd=true}
   +--------+   +-------+    +-------+
   |        | --+ ditaa +--> |       |
   |  Text  |   +-------+    |diagram|

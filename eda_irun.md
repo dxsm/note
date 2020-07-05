@@ -1,4 +1,9 @@
-# EDA工具使用
+---
+title: EDA工具使用 
+date: 2018-09-25 20:46:02
+tags: [eda_tools, ASIC]
+category: eda_tools
+---
 
 ## cadence irun命令
 ### 常用编译
@@ -16,6 +21,8 @@ set_covergroup -per_instance_default_one
 
 select_coverage -all -instance tb_top.xxx*...
 ```
+
+<!-- more -->
 
 ## Synopsys Verdi
 ```shell

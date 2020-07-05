@@ -1,4 +1,9 @@
-# systemverilog面向对象
+---
+title: systemverilog面向对象
+date: 2018-09-30 22:50:15
+tags: [systemverilog, ASIC]
+category: ASIC验证
+---
 
 * 类封装了数据和操作这些数据的子程序
 * 类可以定义在program、package、module中，或者在这些块之外的任何地方。类应当在program或者module之外的package中定义，避免与其他块内变量出现冲突。
@@ -11,3 +16,5 @@
 * 静态方法不允许读写非静态变量
 * 类中的方法默认是自动存储的
 * 当使用一个变量时，会优先在当前作用域中寻找，接着在上一级作用域寻找，直到找到该变量为止。`this`可以明确指定当前作用域。
+
+<!-- more -->
